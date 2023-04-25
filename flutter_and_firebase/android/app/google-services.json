@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890737675264",
+    "project_id": "flutter-firebase-d94e6",
+    "storage_bucket": "flutter-firebase-d94e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890737675264:android:9425c706fdf23342fd5ce5",
+        "android_client_info": {
+          "package_name": "com.bookcloud.flutter_and_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890737675264-v5tc69gr665q8tter3sg5sub85e249ns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBhrfJOhfHyU-01NicACTmZ1LDs9AoqV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890737675264-v5tc69gr665q8tter3sg5sub85e249ns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
