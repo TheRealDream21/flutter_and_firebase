@@ -9,10 +9,12 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform, name: 'Firebase');
-  runApp(MainApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
+  const MainApp({Key? key}) : super(key: key);
+
   // Making a instance of AuthService
 
   @override
@@ -20,7 +22,7 @@ class MainApp extends StatelessWidget {
     return StreamProvider.value(
         initialData: null,
         value: AuthService().user,
-        child: MaterialApp(
+        child: const MaterialApp(
           home: Wrapper(),
         ));
   }

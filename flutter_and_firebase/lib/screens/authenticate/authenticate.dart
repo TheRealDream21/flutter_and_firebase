@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import '../../services/auth.dart';
 
 class authenticate extends StatefulWidget {
+  const authenticate({Key? key}) : super(key: key);
+
   @override
   State<authenticate> createState() => _authenticateState();
 }
 
+// ignore: camel_case_types
 class _authenticateState extends State<authenticate> {
   final AuthService _auth = AuthService();
 
