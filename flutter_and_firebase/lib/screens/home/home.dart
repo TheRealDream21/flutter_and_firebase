@@ -6,6 +6,21 @@ class home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('home');
+    AuthService _auth = AuthService();
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          TextButton(
+            onPressed: () {
+              _auth.signOut();
+            },
+            child: const Text("Log Out"),
+          ),
+        ],
+        backgroundColor: Colors.amber,
+        title: const Text("I wanna be Contigo"),
+        centerTitle: true,
+      ),
+    );
   }
 }
