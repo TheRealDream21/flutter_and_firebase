@@ -14,6 +14,8 @@ class authenticate extends StatefulWidget {
 // ignore: camel_case_types
 class _authenticateState extends State<authenticate> {
   final AuthService _auth = AuthService();
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class _authenticateState extends State<authenticate> {
         appBar: AppBar(actions: [], title: const Text('Firebase!')),
         body: Form(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 0.0),
+            padding: EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 0.0),
             child: Column(children: [
               const SizedBox(
                 height: 20.0,
@@ -44,9 +46,13 @@ class _authenticateState extends State<authenticate> {
               const SizedBox(
                 height: 20.0,
               ),
-              TextFormField(onChanged: (val) {}),
+              TextFormField(onChanged: (val) {
+                setState(() => email = val);
+              }),
               TextFormField(
-                onChanged: (val) {},
+                onChanged: (val) {
+                  setState(() => password = val);
+                },
                 obscureText: true,
               ),
               const SizedBox(

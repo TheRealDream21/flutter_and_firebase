@@ -3,17 +3,15 @@ import 'package:flutter/material.dart';
 import '../../services/auth.dart';
 
 class home extends StatelessWidget {
-  final AuthService _auth = AuthService();
-
   @override
   Widget build(BuildContext context) {
-    AuthService _auth = AuthService();
+    AuthService auth = AuthService();
     return Scaffold(
       appBar: AppBar(
         actions: [
           TextButton(
             onPressed: () {
-              _auth.signOut();
+              auth.signOut();
             },
             child: const Text(
               "Log Out",
