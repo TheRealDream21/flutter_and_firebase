@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import '../../services/auth.dart';
 
@@ -6,7 +7,6 @@ class home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     AuthService _auth = AuthService();
     return Scaffold(
       appBar: AppBar(
@@ -38,25 +38,6 @@ class home extends StatelessWidget {
           )
         ],
       )),
-=======
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        title: const Text("Home"),
-        centerTitle: true,
-        actions: <Widget>[
-          TextButton.icon(
-              onPressed: () async {
-                await _auth.signOut();
-              },
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-              ),
-              icon: const Icon(Icons.person_2),
-              label: const Text("Log Out"))
-        ],
-      ),
->>>>>>> f7b10fed80cce8848cc72ad22743c25ae290de02
     );
   }
 }
