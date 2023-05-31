@@ -31,9 +31,9 @@ class AuthService {
   }
 
   // sign Out
-  Future signOut() async {
+  User? signOut() {
     try {
-      UserCredential? result = (await _auth.signOut) as UserCredential?;
+      UserCredential? result = _auth.signOut() as UserCredential?;
       return result?.user;
     } catch (e) {
       print(e);

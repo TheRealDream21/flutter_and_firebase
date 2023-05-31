@@ -14,13 +14,29 @@ class home extends StatelessWidget {
             onPressed: () {
               _auth.signOut();
             },
-            child: const Text("Log Out"),
+            child: const Text(
+              "Log Out",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
         backgroundColor: Colors.amber,
         title: const Text("I wanna be Contigo"),
         centerTitle: true,
       ),
+      drawer: Drawer(
+          child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 30.0),
+            child: IconButton(
+                icon: const Icon(Icons.add),
+                onPressed: () {
+                  print("added stuff");
+                }),
+          )
+        ],
+      )),
     );
   }
 }

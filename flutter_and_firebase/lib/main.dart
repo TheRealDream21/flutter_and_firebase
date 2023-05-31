@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_firebase/firebase_options.dart';
@@ -24,7 +23,7 @@ class MainApp extends StatelessWidget {
     return StreamProvider.value(
       value: AuthService().user,
       initialData: null,
-      child: MaterialApp(
+      child: const MaterialApp(
         home: Wrapper(),
       ),
     );
