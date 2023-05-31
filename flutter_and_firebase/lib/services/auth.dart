@@ -13,10 +13,16 @@ class AuthService {
     await Firebase.initializeApp();
   }
 
+<<<<<<< HEAD
 //  // create user obj based on firebase user
 //   UserModel _userFromFirebaseUser(User user) {
 //     return user != null ? User(uid: user.uid) : null;
 //   }
+=======
+  Stream<User?> get user {
+    return _auth.authStateChanges();
+  }
+>>>>>>> f7b10fed80cce8848cc72ad22743c25ae290de02
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   // sign in anonymously
@@ -30,6 +36,7 @@ class AuthService {
     }
   }
 
+<<<<<<< HEAD
   // sign Out
   User? signOut() {
     try {
@@ -37,6 +44,13 @@ class AuthService {
       return result?.user;
     } catch (e) {
       print(e);
+=======
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+>>>>>>> f7b10fed80cce8848cc72ad22743c25ae290de02
       return null;
     }
   }
