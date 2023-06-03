@@ -23,7 +23,7 @@ class _authenticateState extends State<authenticate> {
       appBar: AppBar(actions: [], title: const Text('Firebase!')),
       body: Form(
         child: Column(children: [
-          Container(
+          SizedBox(
             child: Register(),
             height: 400.0,
           )
