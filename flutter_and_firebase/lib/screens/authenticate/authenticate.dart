@@ -1,7 +1,7 @@
 // ignore: unused_import
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_and_firebase/screens/authenticate/register.dart';
 import '../../services/auth.dart';
 
 class authenticate extends StatefulWidget {
@@ -20,50 +20,15 @@ class _authenticateState extends State<authenticate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(actions: [], title: const Text('Firebase!')),
-        body: Form(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 0.0),
-            child: Column(children: [
-              const SizedBox(
-                height: 20.0,
-              ),
-              TextButton(
-                child: const Row(
-                  children: [Icon(Icons.person), Text("Sign In anon")],
-                ),
-                onPressed: () async {
-                  dynamic result = await _auth.signInAnonymously();
-                  if (result == null) {
-                    // ignore: avoid_print
-                    print('error!');
-                  } else {
-                    // ignore: avoid_print
-                    print(result);
-                  }
-                },
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              TextFormField(onChanged: (val) {
-                setState(() => email = val);
-              }),
-              TextFormField(
-                onChanged: (val) {
-                  setState(() => password = val);
-                },
-                obscureText: true,
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              TextButton(
-                child: const Text("Sign In"),
-                onPressed: () {},
-              )
-            ]),
-          ),
-        ));
+      appBar: AppBar(actions: [], title: const Text('Firebase!')),
+      body: Form(
+        child: Column(children: [
+          Container(
+            child: Register(),
+            height: 400.0,
+          )
+        ]),
+      ),
+    );
   }
 }
