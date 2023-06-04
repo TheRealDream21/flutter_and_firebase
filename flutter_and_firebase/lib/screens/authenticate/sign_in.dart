@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_and_firebase/services/auth.dart';
 
-class Register extends StatefulWidget {
+// ignore: camel_case_types
+class signIn extends StatefulWidget {
   final Function toggleView;
-  const Register({super.key, required this.toggleView});
-
+  const signIn({super.key, required this.toggleView});
   @override
-  State<Register> createState() => _RegisterState();
+  State<signIn> createState() => _signInState();
 }
 
-class _RegisterState extends State<Register> {
+// ignore: camel_case_types
+class _signInState extends State<signIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   String error = '';
@@ -28,7 +29,7 @@ class _RegisterState extends State<Register> {
                 color: Colors.white,
               ),
               Text(
-                "Sign In",
+                "Register",
                 style: TextStyle(color: Colors.white),
               )
             ],
@@ -37,25 +38,18 @@ class _RegisterState extends State<Register> {
             widget.toggleView();
           },
         )
-      ], title: const Text('Register into Book Cloud')),
+      ], title: const Text('Sign into Book Cloud')),
       body: Form(
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 0.0),
           child: Column(children: [
-            Center(
-              child: TextButton(
-                child: const Text("Anonymous Viewing"),
-                onPressed: () async {
-                  await _auth.signInAnonymously();
-                },
-              ),
-            ),
             const SizedBox(
               height: 20.0,
             ),
             TextFormField(
-                validator: (val) => val!.isEmpty ? 'Enter an email' : null,
+                validator: (val) =>
+                    val!.isEmpty ? 'Enter a signed in email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
                 }),
@@ -71,13 +65,13 @@ class _RegisterState extends State<Register> {
               height: 20.0,
             ),
             TextButton(
-              child: const Text("Register"),
+              child: const Text("Sign In"),
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
-                  dynamic result =
-                      await _auth.registerwithEandP(email, password);
+                  dynamic result = await _auth.signInwithEandP(email, password);
                   if (result == null) {
-                    setState(() => error = 'please supply a valid email');
+                    setState(() => error =
+                        'please supply a valid email and matching password');
                   }
                 }
               },

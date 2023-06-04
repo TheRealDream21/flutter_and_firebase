@@ -2,7 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_and_firebase/screens/authenticate/register.dart';
-import '../../services/auth.dart';
+import 'package:flutter_and_firebase/screens/authenticate/sign_in.dart';
 
 class authenticate extends StatefulWidget {
   const authenticate({Key? key}) : super(key: key);
@@ -13,22 +13,17 @@ class authenticate extends StatefulWidget {
 
 // ignore: camel_case_types
 class _authenticateState extends State<authenticate> {
-  final AuthService _auth = AuthService();
-  String email = '';
-  String password = '';
+  bool showSignIn = true;
+  void toggleView() {
+    setState(() => showSignIn = !showSignIn);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(actions: [], title: const Text('Firebase!')),
-      body: Form(
-        child: Column(children: [
-          SizedBox(
-            child: Register(),
-            height: 400.0,
-          )
-        ]),
-      ),
-    );
+    if (showSignIn) {
+      return signIn(toggleView: toggleView);
+    } else {
+      return Register(toggleView: toggleView);
+    }
   }
 }
