@@ -34,7 +34,9 @@ class _RegisterState extends State<Register> {
             ],
           ),
           onPressed: () {
-            widget.toggleView();
+            setState(() {
+              widget.toggleView();
+            });
           },
         )
       ], title: const Text('Register into Book Cloud')),
@@ -42,51 +44,54 @@ class _RegisterState extends State<Register> {
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 0.0),
-          child: Column(children: [
-            Center(
-              child: TextButton(
-                child: const Text("Anonymous Viewing"),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 900),
+            child: Column(children: [
+              Center(
+                child: TextButton(
+                  child: const Text("Anonymous Viewing"),
+                  onPressed: () async {
+                    await _auth.signInAnonymously();
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextFormField(
+                  validator: (val) => val!.isEmpty ? 'Enter an email' : null,
+                  onChanged: (val) {
+                    setState(() => email = val);
+                  }),
+              TextFormField(
+                validator: (val) =>
+                    val!.length < 6 ? 'Enter a password 6+ chars long' : null,
+                onChanged: (val) {
+                  setState(() => password = val);
+                },
+                obscureText: true,
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextButton(
+                child: const Text("Register"),
                 onPressed: () async {
-                  await _auth.signInAnonymously();
+                  if (_formKey.currentState!.validate()) {
+                    dynamic result =
+                        await _auth.registerwithEandP(email, password);
+                    if (result == null) {
+                      setState(() => error = 'please supply a valid email');
+                    }
+                  }
                 },
               ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextFormField(
-                validator: (val) => val!.isEmpty ? 'Enter an email' : null,
-                onChanged: (val) {
-                  setState(() => email = val);
-                }),
-            TextFormField(
-              validator: (val) =>
-                  val!.length < 6 ? 'Enter a password 6+ chars long' : null,
-              onChanged: (val) {
-                setState(() => password = val);
-              },
-              obscureText: true,
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              child: const Text("Register"),
-              onPressed: () async {
-                if (_formKey.currentState!.validate()) {
-                  dynamic result =
-                      await _auth.registerwithEandP(email, password);
-                  if (result == null) {
-                    setState(() => error = 'please supply a valid email');
-                  }
-                }
-              },
-            ),
-            Text(
-              error,
-              style: const TextStyle(color: Colors.red, fontSize: 14.0),
-            )
-          ]),
+              Text(
+                error,
+                style: const TextStyle(color: Colors.red, fontSize: 14.0),
+              )
+            ]),
+          ),
         ),
       ),
     );
