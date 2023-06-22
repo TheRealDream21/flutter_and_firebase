@@ -25,7 +25,6 @@ class AuthService {
       UserCredential result = await _auth.signInAnonymously();
       return result.user;
     } catch (e) {
-      print(e);
       return null;
     }
   }
@@ -38,7 +37,6 @@ class AuthService {
       User? user = result.user;
       return user;
     } catch (e) {
-      print(e.toString());
       return null;
     }
   }
@@ -51,7 +49,6 @@ class AuthService {
       User? user = result.user;
       return user;
     } catch (e) {
-      print(e.toString());
       return null;
     }
   }
@@ -62,7 +59,6 @@ class AuthService {
       UserCredential? result = _auth.signOut() as UserCredential?;
       return result?.user;
     } catch (e) {
-      print(e);
       return null;
     }
   }

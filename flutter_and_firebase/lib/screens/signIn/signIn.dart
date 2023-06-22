@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_and_firebase/screens/authenticate/authenticate.dart';
 
+// ignore: camel_case_types
 class signIn extends StatefulWidget {
   const signIn({Key? key}) : super(key: key);
 
@@ -8,6 +8,7 @@ class signIn extends StatefulWidget {
   State<signIn> createState() => _signInState();
 }
 
+// ignore: camel_case_types
 class _signInState extends State<signIn> {
   String email = '';
   String password = '';
@@ -19,34 +20,29 @@ class _signInState extends State<signIn> {
         title: const Text("Sign in to BookCloud"),
         backgroundColor: Colors.lightBlue,
       ),
-      body: Container(
-        child: Column(children: [
-          const SizedBox(
-            height: 20.0,
-          ),
-          TextFormField(
-            onChanged: (val) {
-              email = val;
-            },
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          TextFormField(
-            obscureText: true,
-            onChanged: (val) {
-              password = val;
-            },
-          ),
-          TextButton.icon(
-              onPressed: () {
-                print(email);
-                print(password);
-              },
-              icon: const Icon(Icons.margin_outlined),
-              label: const Text("Sign In"))
-        ]),
-      ),
+      body: Column(children: [
+        const SizedBox(
+          height: 20.0,
+        ),
+        TextFormField(
+          onChanged: (val) {
+            email = val;
+          },
+        ),
+        const SizedBox(
+          height: 20.0,
+        ),
+        TextFormField(
+          obscureText: true,
+          onChanged: (val) {
+            password = val;
+          },
+        ),
+        TextButton.icon(
+            onPressed: () {},
+            icon: const Icon(Icons.margin_outlined),
+            label: const Text("Sign In"))
+      ]),
     );
   }
 }

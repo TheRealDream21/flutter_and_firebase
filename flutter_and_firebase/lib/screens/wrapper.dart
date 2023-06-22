@@ -13,9 +13,9 @@ class Wrapper extends StatelessWidget {
     final user = Provider.of<User?>(context);
     // ignore: unnecessary_null_comparison
     if (user == null) {
-      return authenticate();
+      return const authenticate();
     } else {
-      return home();
+      return const home();
     }
   }
 }

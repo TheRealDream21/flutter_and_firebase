@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../services/auth.dart';
 
 class home extends StatelessWidget {
+  const home({super.key});
+
   @override
   Widget build(BuildContext context) {
     AuthService auth = AuthService();
@@ -29,9 +31,9 @@ class home extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 30.0),
             child: IconButton(
-                icon: const Icon(Icons.add),
+                icon: const Icon(Icons.adb),
                 onPressed: () {
-                  print("added stuff");
+                  Navigator.pushNamed(context, 'test');
                 }),
           )
         ],
